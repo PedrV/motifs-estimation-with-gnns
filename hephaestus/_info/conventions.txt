@@ -1,0 +1,40 @@
+The format used to represent graphs is: u v x. Where u,v >= 1 and x represents the edge weight.
+Graphs are distributed among datasets. Each dataset has a name e.g. ENZYMES. Each graph in the dataset
+also has a name. Hence, to refer to a graph named 0 of the ENZYMES dataset to ENZYMES@0.
+The graph file should be under ENZYMES@0.csv.
+
+If the graph name is to have additional information appended to its name it should be separated by "+".
+For example, ENZYMES@0+graph+0+modification+32.csv,
+dBINOMIAL_TREE@networkx.binomial_tree+graph+32+param+2+cycle+1.csv,
+LARGEDATASET@alien_graph+graph+42+param+0.csv ...
+This is useful if many graphs have the same name and differ
+only on the parameters used to create them e.g. dBINOMIAL_TREE@networkx.binomial_tree+graph+32+param+2+cycle+1.csv.
+The symbols between the "@" and the last "." are the graph name. In the examples above, the graph names would be:
+"0", "networkx.binomial_tree+graph+32+param+2+cycle+1", "alien_graph+graph+42+param+0".
+
+The score obtained by GTRIE is always of the form DATASETNAME@GRAPHNAME.score-sizeSIZE.
+(Caps where to denote a "variable", the names do not have to be in uppercase)
+For example ENZYMES@0.score-size3 for the results for graph 0 of ENZYMES using subgraphs of size 3.
+If multiple subgraph sizes are used e.g. 3,4 and 5, then each graph will have a file for each size e.g.
+ENZYMES@0.score-size3, ENZYMES@0.score-size4, ENZYMES@0.score-size5.
+The final file consisting of all files for all sizes is named ENZYMES@0.score.
+
+The labels for the dataset are under the name DATASETNAME_labels.csv e.g. ENZYMES_labels.csv, KarateClub_labels.csv.
+Each line represents the normalized scores (under a chosen normalization scheme) for a graph in the dataset.
+
+The attributes/features for the nodes of a graph of a dataset are in a file named DATASETNAME@GRAPHNAME_features.csv.
+Each line represents the features for a node of a graph of a dataset. This means that each graph will have its
+feature file.
+
+Symbols:
+"@": Separates the dataset name from the rest.
+"+": Separates the additional information that a graph has in its name. Each field is in the format "fieldname+val",
+    chaining multiple fields yields e.g. "graph+42+param+0".
+"-": Reserved for intermediate scores of GTRIE.
+"bbb_aaa.ccc": If it exists additional file identifiers e.g. denoting the file is a label file, that indication should be
+    after the last "_" and before the extension of the file.
+    For example dBINOMIAL_TREE@networkx.binomial_tree+graph+32+param+2+cycle+1_features.csv has multiple "_" in its
+    name, but if we want to check for its identifier it should be between the last underscore and
+    the extension of the file. If the output of that split makes sense then the file as a file identifier.
+"xxx@yyy+zzz.uuu": xxx is the dataset name, yyy the canonical graph name, zzz the additional information in the graph
+    name and uuu the file extension. "yyy+zzz" correspond to the full graph name.

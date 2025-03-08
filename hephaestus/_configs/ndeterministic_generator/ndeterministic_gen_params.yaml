@@ -1,0 +1,94 @@
+---
+AmountOfGraphs: 9924
+
+Params:
+  # Subcritical gico is mainly trees, this is already covered in other gens
+  networkx.fast_gnp_random_graph: [
+      [[5000, 15000], "critical"],
+      [[5000, 10000], "supercritical"],
+      [[5000, 10000], "connected"],
+    ] # Connected regime will be hard limit to only slightly larger than ln N / N
+
+  networkx.watts_strogatz_graph: [[[1000, 2000], [3, 10], [0.001, 0.1]]] # [min_nodes, max_nodes], [min_neighb, max_neighb], [min_rewiring_prob, max_rewiring_prob]
+
+  networkx.random_regular_graph: [[[2, 8], [1000, 2000]]] # [min_degree, max_degree], [min_nodes, max_nodes]
+
+  networkx.extended_barabasi_albert_graph:
+    [[[1000, 2000], [2, 4], "powerlaw"], [[1000, 2000], [2, 4], "classicalBA"]] # [min_nodes, max_nodes], [min_edges, max_edges], regime
+    # Exponential regime was not used
+
+  networkx.powerlaw_cluster_graph: [
+      [[500, 2500], [3, 1.2]],
+      [[500, 2500], [3, 1.5]],
+      [[500, 2500], [3, 1.8]],
+    ] # [min_nodes,max_nodes], [m,m_t] m_t parameter from paper
+
+  networkx.duplication_divergence_graph: [
+      [[150, 1000], "self-averaging1"],
+      [[150, 1000], "self-averaging2"],
+      [[150, 1000], "not self-averaging"],
+    ] # [min_nodes,max_nodes], regime
+
+  networkx.gaussian_random_partition_graph: [[[150, 2500], [10, 25], [10000]]] # [min_nodes,max_nodes], [min_mean_partitions,max_mean_partition], [max_num_edges]
+
+  igraph.graph.forest_fire: [[[200, 2000], [0, 0.4], [0, 0.4]]] # [min_nodes,max_nodes], [fw_min,fw_max], [bw_min,bw_max] (probably should have used 0.45 or 0.5 ...)
+
+  hephaestus.graph_generation.generation_utils.random_limited_geometric_graph: [
+      [[150, 2500], [2, 5], [4000, 8000]],
+    ] # [min_nodes,max_nodes], [min_dim,max_dim], [min_num_edges,max_num_edges]
+
+  hephaestus.graph_generation.generation_utils.random_limited_3dgeo_dd_graph: [
+      [[150, 1000], [4000, 8000]],
+    ] # [min_nodes,max_nodes], [min_num_edges,max_num_edges]
+
+  networkx.newman_watts_strogatz_graph: [[[1000, 2000], [3, 10], [0.001, 0.1]]] # [min_nodes, max_nodes], [min_neighb, max_neighb], [min_rewiring_prob, max_rewiring_prob]
+
+Cycles:
+  networkx.fast_gnp_random_graph: [0]
+
+  networkx.watts_strogatz_graph: [0]
+
+  networkx.random_regular_graph: [0]
+
+  networkx.extended_barabasi_albert_graph: [0]
+
+  networkx.powerlaw_cluster_graph: [0]
+
+  networkx.duplication_divergence_graph: [0]
+
+  networkx.gaussian_random_partition_graph: [0]
+
+  igraph.graph.forest_fire: [0]
+
+  hephaestus.graph_generation.generation_utils.random_limited_geometric_graph:
+    [0]
+
+  hephaestus.graph_generation.generation_utils.random_limited_3dgeo_dd_graph:
+    [0]
+
+  networkx.newman_watts_strogatz_graph: [0]
+
+ProportionPerCycles:
+  networkx.fast_gnp_random_graph: [1]
+
+  networkx.watts_strogatz_graph: [1]
+
+  networkx.random_regular_graph: [1]
+
+  networkx.extended_barabasi_albert_graph: [1]
+
+  networkx.powerlaw_cluster_graph: [1]
+
+  networkx.duplication_divergence_graph: [1]
+
+  networkx.gaussian_random_partition_graph: [1]
+
+  igraph.graph.forest_fire: [1]
+
+  hephaestus.graph_generation.generation_utils.random_limited_geometric_graph:
+    [1]
+
+  hephaestus.graph_generation.generation_utils.random_limited_3dgeo_dd_graph:
+    [1]
+
+  networkx.newman_watts_strogatz_graph: [1]

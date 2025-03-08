@@ -1,0 +1,28 @@
+---
+MPGNN:
+  [
+    torch_geometric.nn.GIN,
+    torch_geometric.nn.GCN,
+    torch_geometric.nn.GAT,
+    torch_geometric.nn.GraphSAGE,
+  ]
+
+Pooling: [torch_geometric.nn.pool.global_add_pool]
+
+Decoder: [hephaestus.models.simple_decoder.SimpleDecoder]
+
+MPGNNs_general_params: # input_dim depends on features used
+  depth: [2, 3]
+  hidden_dim: [6, 16] # output_dim will match hidden_dim, adjustments in size can be done in the decoder
+  dropout: [0.0, 0.9]
+  jk: [max, cat, lstm]
+
+Decoder_general_params: # output_dim depends on the task, input_dim should match MPGNN output_dim
+  hidden_dim: [6, 16]
+  dropout: [0.2, 0.9]
+  depth: [2, 6]
+
+General_Params:
+  epochs: 100
+  batch_size: [16, 32, 64, 256]
+  learning_rate: [0.00001, 0.001]

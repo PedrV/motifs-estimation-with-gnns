@@ -1,0 +1,9 @@
+adjmatrix, occ_original, z_score, avg_random, stdev_random
+"011100100", 1, -2.812954725, 3.664000000, 0.947046881
+"011101110", 1, 2.812954725, 0.112000000, 0.315682294
+"0110100110000100", nan, nan, nan, nan
+"0110100110010110", nan, nan, nan, nan
+"0111100010001000", nan, nan, nan, nan
+"0111101011001000", nan, nan, nan, nan
+"0111101111001100", nan, nan, nan, nan
+"0111101111011110", nan, nan, nan, nan

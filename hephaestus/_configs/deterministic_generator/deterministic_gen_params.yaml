@@ -1,0 +1,96 @@
+---
+AmountOfGraphs: 1600
+
+Params:
+  networkx.balanced_tree:
+    [
+      [2, 4],
+      [2, 6],
+      [2, 8],
+      [2, 10],
+      [2, 12],
+      [3, 3],
+      [3, 5],
+      [3, 7],
+      [4, 3],
+      [4, 6],
+      [5, 2],
+      [5, 5],
+      [6, 4],
+    ]
+
+  networkx.barbell_graph: [[[4, 100], [4, 100]]] # [min_num_modes,max_num_nodes] for each barbell
+
+  networkx.binomial_tree: [[7], [8], [9], [10], [11], [12], [13], [14]]
+
+  networkx.circular_ladder_graph: [[20, 2000]] # [min_num_modes,max_num_nodes]
+
+  networkx.dorogovtsev_goltsev_mendes_graph: [[3], [4], [5], [6], [7]]
+
+  networkx.full_rary_tree: [[[2, 10], [100, 1000]]] # [min_r,max_r], [min_num_modes,max_num_nodes]
+
+  networkx.lollipop_graph: [[[4, 100], [4, 100]]] # [min_num_nodes_barbell, max_num_nodes_barbell] [min_num_nodes_path,max_num_nodes_path]
+
+  networkx.star_graph: [[10, 1000]] # [min_num_modes,max_num_nodes]
+
+  networkx.chordal_cycle_graph: [[5, 2000]] # [min_num_modes,max_num_nodes]
+
+  networkx.grid_graph: [[[5, 16], [5, 16], [5, 16]]] # [min_n,max_n] for each dimension
+
+  networkx.hexagonal_lattice_graph: [[[5, 20], [5, 20], [0, 1]]] # [min_n,max_n] for each dimension and periodic bool
+
+  networkx.triangular_lattice_graph: [[[5, 25], [5, 25], [0, 1]]] # [min_n,max_n] for each dimension and periodic bool
+
+Cycles:
+  networkx.balanced_tree: [0, 0.65]
+
+  networkx.barbell_graph: [0, 0.65]
+
+  networkx.binomial_tree: [0, 0.65]
+
+  networkx.circular_ladder_graph: [0, 0.65]
+
+  networkx.dorogovtsev_goltsev_mendes_graph: [0, 0.65]
+
+  networkx.full_rary_tree: [0, 0.65]
+
+  networkx.lollipop_graph: [0, 0.65]
+
+  networkx.star_graph: [0, 0.65]
+
+  networkx.chordal_cycle_graph: [0, 0.65]
+
+  networkx.grid_graph: [0, 0.65]
+
+  networkx.hexagonal_lattice_graph: [0, 0.65]
+
+  networkx.hypercube_graph: [0, 0.65]
+
+  networkx.triangular_lattice_graph: [0, 0.65]
+
+ProportionPerCycles:
+  networkx.balanced_tree: [0.4, 0.6]
+
+  networkx.barbell_graph: [0.4, 0.6]
+
+  networkx.binomial_tree: [0.4, 0.6]
+
+  networkx.circular_ladder_graph: [0.4, 0.6]
+
+  networkx.dorogovtsev_goltsev_mendes_graph: [0.4, 0.6]
+
+  networkx.full_rary_tree: [0.4, 0.6]
+
+  networkx.lollipop_graph: [0.4, 0.6]
+
+  networkx.star_graph: [0.4, 0.6]
+
+  networkx.chordal_cycle_graph: [0.4, 0.6]
+
+  networkx.grid_graph: [0.4, 0.6]
+
+  networkx.hexagonal_lattice_graph: [0.4, 0.6]
+
+  networkx.hypercube_graph: [0.4, 0.6]
+
+  networkx.triangular_lattice_graph: [0.4, 0.6]

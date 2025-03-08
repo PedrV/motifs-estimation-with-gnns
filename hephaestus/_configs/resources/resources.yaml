@@ -1,0 +1,8 @@
+graph_generation:
+  TOTAL_CPU_FRACTION_TO_USE: 1 # Fraction of the total amount of available cores to use
+
+label_generation:
+  TOTAL_CPU_FRACTION_TO_USE: 0.14 # Fraction that each worker can use when generating labels
+  NUMBER_OF_WORKERS: 7 # cpu_fraction * n_workers <= 1
+
+# The resources for training models should be modified in the training/train_model.py file
