@@ -55,8 +55,9 @@ An alternative to generate the PyG datasets would be to download datasets direct
 
 1. Make sure the data under `_excluded/complete_dataset` is the desired one. For example, if you want to train with the deterministic data remove the indicator `_d` from the folder name.
 2. Change the `/path/to/env` in [train_model.sh](../train_model.sh) and run the script.
-    * Running `train_model.sh 0` will use GIN M1, Using `1` will use GCN, `2` GAT and `3` SAGE. The order is given by the order they are present in the array in the config file [optimization_parameters_t.yaml](./_configs/classification_engine_v1/optimization/optimization_parameters_t.yaml).
+    * Running `train_model.sh 0` will use GIN M1, Using `1` will use GCN, `2` GAT and `3` SAGE. The numbers attributed based on the order of the models in the array in the config file [optimization_parameters_t.yaml](./_configs/classification_engine_v1/optimization/optimization_parameters_t.yaml).
     * To understand what metrics are reported and how to further configure Ray or turn on Wandb explore the script [train_model.py](./training/train_model.py).
+    * Adding the option `--smoke-test` to one of the commands in [train_model.sh](../train_model.sh) allows to obtain a quick result.
 
 The results of the training procedure can be seen following this [link](Not in the anonymous version). To get the actual results, download them from this [link](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: model_trainning_results/relevant_experiments.tar.xz") (`model_trainning_results/relevant_experiments.tar.xz`). The organisation is as follows:
 * GCN with deterministic segment: "TALOS_20240110-163351" and "TAUROI_KHALKEOI_20231231-004707" (2 parts)

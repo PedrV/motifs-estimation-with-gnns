@@ -60,7 +60,7 @@ CSV_SAVE_PREDICTIONS = True
 REPEATED_NAMES = False
 
 MODEL_TYPE = "gin"
-DATASET_TYPE = "nd"
+DATASET_TYPE = "d"
 PER_GENERATOR_ELEMENTS = 320 if DATASET_TYPE == "d" else 349  # Graphs per generator
 
 TRIALS = [
@@ -74,7 +74,7 @@ EXPERIMENTS = [
 
 ########################## SET UP DIRECTORIES #######################
 BASE_EXPERIMENT_DIRECTORY = Path("path/to/where/model_storage/models/is/located")
-MODELS_PATH = BASE_EXPERIMENT_DIRECTORY / "model_storage" / "models"
+MODELS_PATH = BASE_EXPERIMENT_DIRECTORY
 
 BASE_PATH = Path("some/base/path/where/stuff/is/saved")
 SAVE_PATH = (

@@ -1,6 +1,6 @@
 [< Back](../README.md)
 
-The folder [hephaestus_lab](.) has all the files related with the analysis of the results obtained by the trained models [^1]. Furthermore, for some critical data, a SHA file is generated. This file serves as a simple way to guarantee that the data was not altered by mistake. All the results from the scripts in this folder are available for download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_27-09-2024.zip") (`experiment_results/plots_27-09-2024.zip`). If you just want to replicate this portion of the experiments, putting the path to the unziped `experiment_results/plots_27-09-2024.zip` where there are mentions to "results from evaluate" should "link" all data necessary.
+The folder [hephaestus_lab](.) has all the files related with the analysis of the results obtained by the trained models [^1]. Furthermore, for some critical data, a SHA file is generated. This file serves as a simple way to guarantee that the data was not altered by mistake. All the results from the scripts in this folder are available for download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_7-03-2025.zip") (`experiment_results/plots_7-03-2025.zip`).
 
 It is recommended that the module `hephaestus` and the folder `hephaestus_lab` to be in the same parent directory.
 
@@ -41,10 +41,10 @@ This notebook will generate the figure related to the separation of the Z-Scores
 
 This notebook will generate the images related with the metrics used to monitor the training of the models. To execute the notebook do the following:
 
-1. Put all the results from the experiments in a folder `model_storage/models`.
+1. Put all the results from the experiments in a folder.
     * The experiments could either be the result from training everything from scratch or be the files downloaded according to the section [3 Training the models](../hephaestus/README.md#3-training-the-models).
 2. Change the `BASE_PATH` to the path where `hephaestus` is located.
-3. Change the `BASE_EXPERIMENT_DIRECTORY` to the folder where `model_storage/models` is located and run all cells.
+3. Change the `BASE_EXPERIMENT_DIRECTORY` to the folder where the models are located and run all cells.
     * Feel free to change any path to where the documents are saved.
 
 ---
@@ -87,60 +87,40 @@ This script complements the one in the previous section. It generates the predic
 6. Change `BASE_EXPERIMENT_DIRECTORY` to the same value used in the previous section.
     * Feel free to change any path to where the documents are saved.
 7. Run the script.
+    * You may see an empty directory besides the files with predictions. That is ok!
 
-### [barplot_models.ipynb](evaluation/evaluate_predictions/barplot_models.ipynb) [TO BE REMOVED]
 
-This notebook generates the barplot with the summary of the results from the two previous sections. To execute the notebook do the following:
+### [inter-intra-predictions.ipynb](evaluation/evaluate_predictions/inter-intra-predictions.ipynb)
 
-1. You must have executed the code for the last two sections with all combinations for the barplot to have the correct format. That is evaluated each of the 3 models in each of the 2 real-world datasets for [evaluate_models.py](evaluation/evaluate_predictions/evaluate_models.py) and executed for the 3 models for [evaluate_models_reduced.py](evaluation/evaluate_predictions/evaluate_models_reduced.py).
-    * Alternatively, you can download the results [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_27-09-2024.zip") (`experiment_results/plots_27-09-2024.zip`).
-2. Change `BASE_PATH` and `RESULTS_FROM_EVALUATE_MODELS` to the folder where the results from the previous two sections are stored and run all cells.
+This notebook generates the heatmaps and the base (no customization) for the tables used in the paper. It also generates the plots for a more detailed comparison of how many predictions were considered correct for multiple threshold (two figures in the additional materials).
 
-### [model_preds_synthetic-real.ipynb](evaluation/evaluate_predictions/model_preds_synthetic-real.ipynb) [TO BE MODIFIED]
-
-This notebook generates the lineplot with the comparison of the predictions and the real SPs and the number of "sufficiently correct" predictions per generator. To execute the notebook do the following:
-
-1. You must have executed the code for the last two sections with all combinations for the barplot to have the correct format. That is evaluated each of the 3 models in each of the 2 real-world datasets for [evaluate_models.py](evaluation/compare_training_progress/mini_compare_models.py) and executed for the 3 models for [evaluate_models_reduced.py](evaluation/compare_training_progress/evaluate_models_reduced.py).
-    * Alternatively, you can download the results [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_27-09-2024.zip") (`experiment_results/plots_27-09-2024.zip`).
+1. You must have executed the code for the last two sections with all combinations. That is evaluated each of the 3 models in each of the 2 real-world datasets for [evaluate_models.py](evaluation/evaluate_predictions/evaluate_models.py) and executed for the 3 models for [evaluate_models_reduced.py](evaluation/evaluate_predictions/evaluate_models_reduced.py).
+    * Alternatively, you can download the results [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_7-03-2025.zip") (`experiment_results/plots_7-03-2025.zip`).
+    * If you download the files, all the predictions are already inside a single folder `..../experiment_results/plots_7-03-2025/plots/evaluate_models/CORRECTIONS/preds`. If you generated the predictions using the previous sections, similarly to the downloaded content, put all of the predictions in a single folder.
 2. Change the argument of `os.chdir` to the folder where `hephaestus` and `hephaestus_lab` are placed.
-3. Change `DATA_DIR` to the folder where the results from the two sections regarding the `evaluate_*` scripts are stored.
-4. Follow the indications in section [Model Predictions in the Synthetic Dataset](./evaluation/evaluate_predictions/model_preds_synthetic-real.ipynb#model-predictions-in-the-synthethic-dataset) of [model_preds_synthetic-real.ipynb](./evaluation/evaluate_predictions/model_preds_synthetic-real.ipynb) to select the desired dataset and run all cells.
+3. Change `DATA_DIR` to the folder where all the predictions are stored.
+4. The cell with the function `def most_similar()` takes around 6h to run. If you do not want to do this, the folder `..../experiment_results/plots_7-03-2025/plots/evaluate_models/CORRECTIONS/inter-generator/similarities` has the precomputed values. Replace the path at the start of each of the three following cells with the one pointing to the correct data.
+5. The cells past "Detailed Comparison" will require rerunning the second cell after "Correct Predictions" (search for `# np.arange(0.05, 0.5, 0.01)`). After doing this, you can run the rest of the cells.
+
+### [inter-predictions-shape.ipynb](evaluation/evaluate_predictions/inter-predictions-shape.ipynb)
+
+This notebook has the comparison per generator of the average predicted significance-profile against the true one. This images are present only in the additional material.   
+
+1. Follow exactly the procedure from points 1 to 3 from the previous section.
+2. Follow the indications in the markdown cell named "Inter-generator Predictions by Shape".
 
 ---
 
-## 4 Persistent Patterns [TO BE REMOVED]
 
-This folder has everything related with the experiments regarding the concept of persistent pattern.
-To run the scripts do the following:
-
-1. Change the `SAVE_PATH` from [run_persistent_patterns.py](./evaluation/persistent_patterns/run_persistent_patterns.py) and [persistent_patterns.py](./evaluation/persistent_patterns/persistent_patterns.py) to a folder named `persistent_patterns` in the folder where the results from the two sections regarding the `evaluate_*` scripts are stored.
-2. Change `DATA_DIR` to the folder where the results from the two sections regarding the `evaluate_*` scripts are stored and run the script [run_persistent_patterns.py](./evaluation/persistent_patterns/run_persistent_patterns.py).
-
----
-
-## 5 Dropout Experiments [TO BE REMOVED]
-
-The analysis of these experiments is done with [evaluate_models.py](evaluation/evaluate_predictions/evaluate_models.py)
-
-1. Change the second argument of `sys.path.insert` to the folder where `hephaestus` is placed. 
-1. Put all the results from the experiments in a folder `model_storage/models`.
-    * The experiments could either be the result from training everything from scratch or be the files downloaded from [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/dropout.zip") (`experiment_results/dropout.zip`).
-2. Change the variable `REPEATED_NAMES` to `True`, `CSV_SAVE_PREDICTIONS` to `False` and `RECUPERATE_TEST_SET_ERROR` to `False`.
-3. Change `MODEL_TYPE` accordingly to the model desired.
-    * GIN corresponds to `KUONES_KHRYSEOS&ARGYREOS_20240324-19241` the other to `SAGE`.
-4. Change `TRIALS` to the list of experiments e.g. `[TorchTrainer_1ac68_00000_0, TorchTrainer_1ac68_00001_1, TorchTrainer_1ac68_00002_2, ..]`
-5. Change the `EXPERIMENTS` to the one corresponding to the desired model e.g. `KUONES_KHRYSEOS&ARGYREOS_20240324-19241` for GIN.
-6. Change `DATASET_TYPE` to the one desired.
-   * We used `sreal` with GIN and `mlreal` with SAGE.
-7. Follow steps 8 through 13 of section caretaking to the script [evaluate_models.py](evaluation/evaluate_predictions/evaluate_models.py).
-
-
-## 6 Validation of the Assumptions Made
+## 4 Validation of the Assumptions Made
 
 ### [validation.ipynb](evaluation/validation/validation.ipynb)
 
-1. For variables `PATH`, `PATH2` and `PATH3` either all steps until now where executed correctly and you have the files, or you may use the ones available for download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_27-09-2024.zip") (`experiment_results/plots_27-09-2024.zip`) and [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/sreal/raw_scores.zip") (`experiment_results/sreal/raw_scores.zip`).
-2. For the final cell, the file must be downloaded from [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/multi-vs-islated.csv") (`experiment_results/multi-vs-islated.csv`)
+This notebook generates the tables (no formatting) that compare the multi-target regression against single-target and direct SP prediction to subgraph estimation.
+
+1. For variables `PATH`, `PATH2` and `PATH3` either all steps until now where executed correctly and you have the files, or you may use the ones available for download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_7-03-2025.zip") (`experiment_results/plots_7-03-2025.zip`) and [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/sreal/raw_scores.zip") (`experiment_results/sreal/raw_scores.zip`).
+   * The correct path for the `PATH` variables correspond to one that leads to the files with the predictions made by the models and the raw count as estimated by GTrie. Concretely, `PATH` wants the ND predictions, `PATH2` the Small Real predictions and `PATH3` the raw score estimated by Gtrie for the Small Real dataset.
+2. For the final cell, the file must be downloaded from [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/multi-vs-isolated.csv") (`experiment_results/multi-vs-isolated.csv`)
 3. Once the files are present, run all cells.
 
 

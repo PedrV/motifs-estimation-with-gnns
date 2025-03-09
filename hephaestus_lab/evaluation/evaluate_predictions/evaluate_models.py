@@ -59,7 +59,7 @@ CSV_SAVE_PREDICTIONS = True
 
 REPEATED_NAMES = False
 
-RECUPERATE_TEST_SET_ERROR = True
+RECUPERATE_TEST_SET_ERROR = False
 TEST_SET_DATASET = "d"
 TEST_SET_LOCATION = f"path/to/folder/_excluded/complete_dataset_{TEST_SET_DATASET}/"
 
@@ -80,7 +80,7 @@ DATASET_TYPE = "sreal"
 TRUE_LABELS_PATH = Path("path/to/where/the/labels/of/the/real-world/data/are/saved")
 
 BASE_EXPERIMENT_DIRECTORY = Path("path/to/where/model_storage/models/is/located")
-MODELS_PATH = BASE_EXPERIMENT_DIRECTORY / "model_storage" / "models"
+MODELS_PATH = BASE_EXPERIMENT_DIRECTORY
 
 BASE_PATH = Path("some/base/path/where/stuff/is/saved")
 SAVE_PATH = (
