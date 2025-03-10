@@ -1,4 +1,34 @@
+# Table of Contents
+1. [Sources](#sources) - The sources for the data and the node and edge number per network.
+2. [Selected Predictions](#selected-predictions) - Images of some selected predictions.
+
+# Selected Predictions
+
+<p align="center">
+<img src="mlrealCOLLABORATIONCITATION_predictions-1.jpg" alt="drawing" width="900"/>
+</p>
+
+<p align="center">
+<img src="mlrealINTERACTION_predictions-1.jpg" alt="drawing" width="900"/>
+</p>
+
+<p align="center">
+<img src="separated_percentiles_band_pred_true_d_gin-1.jpg" alt="drawing" width="1000"/>
+</p>
+
+<p align="center">
+<img src="separated_percentiles_band_pred_true_gin-1.jpg" alt="drawing" width="1000"/>
+</p>
+
+<p align="center">
+<img src="separated_percentiles_band_pred_true_sage-1.jpg" alt="drawing" width="1000"/>
+</p>
+
+The images selected are the ones present in the supplementary material. The first two correspond to predictions made using GIN trained on the ND segment. They showcase the model predicting a significance-profile based on the similarities between real-world data and synthetic generators. The last three images correspond to predictions made by GIN on the D segment followed by GIN on the ND segment and then SAGE on the ND segment. They highlight the capacity of the model to do inter-generator predictions. All the predictions can be viewed by downloading this [folder](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_7-03-2025.zip") (`experiment_results/plots_7-03-2025.zip`). This markdown [file](../hephaestus_lab/README.md) has more details.
+
 # Sources
+
+To download the data, either the synthetic or the real-world one, go to [folder](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: transformed_data/") (`transformed_data/`) and pick the one you want. The files present are `.pt` with the dataset ready to be loaded using pytorch geometric. You can also download the [raw data](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: raw_data/") (`raw_data/`).  This markdown [file](../hephaestus_lab/README.md) has more details on each folder.
 
 - mouse-brain-1 (Medium-Large) - [Connectomes](ttps://neurodata.io/project/connectomes)
 - rhesus-brain-1 (Medium-Large) - [Connectomes](ttps://neurodata.io/project/connectomes)

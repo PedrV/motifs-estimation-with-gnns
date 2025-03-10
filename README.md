@@ -18,12 +18,10 @@ The folder [hephaestus](hephaestus) has all the code used to generate the graphs
 
 The folder [hephaestus_lab](hephaestus_lab) has all the code used to analyse the results from training the multiple models used. Follow the README in the said folder to understand how to reproduce each step of the analysis made.
 
-## By Sections from the Paper
+## [Real World Data](real_world_data/README.md) - Data
 
-* Section 4 Datasets: Follow [1 Generating the synthetic and real graphs and their labels](hephaestus/README.md#1-generating-the-synthetic-and-real-graphs-and-their-labels) and [2 Generating PyG datasets](hephaestus/README.md#2-generating-pyg-datasets).
-* Section 6 Results: Follow [3 Training the models](hephaestus/README.md#3-training-the-models), [2 Compare the Training Results](hephaestus_lab/README.md#2-compare-the-training-results) and [3 Evaluate and Analyse the Predictions](hephaestus_lab/README.md#3-evaluate-and-analyse-the-predictions).
+The folder [real_world_data](real_world_data) has some images of the outputs of the various models together with source for the real-world data and indications on how to download the real-world data and the synthetic data.
 
-To see all predictions for the real-world data download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_27-09-2024.zip") (`experiment_results/plots_27-09-2024.zip`) the selected file and navigate to the folder `evaluate_models/CORRECTIONS`.
 
 ---
 
