@@ -118,10 +118,22 @@ This notebook has the comparison per generator of the average predicted signific
 
 This notebook generates the tables (no formatting) that compare the multi-target regression against single-target and direct SP prediction to subgraph estimation.
 
-1. For variables `PATH`, `PATH2` and `PATH3` either all steps until now where executed correctly and you have the files, or you may use the ones available for download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_7-03-2025.zip") (`experiment_results/plots_7-03-2025.zip`) and [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/sreal/raw_scores.zip") (`experiment_results/sreal/raw_scores.zip`).
-   * The correct path for the `PATH` variables correspond to one that leads to the files with the predictions made by the models and the raw count as estimated by GTrie. Concretely, `PATH` wants the ND predictions, `PATH2` the Small Real predictions and `PATH3` the raw score estimated by Gtrie for the Small Real dataset.
+1. For variables `PATH`, `PATH2` and `PATH3` either all steps until now where executed correctly and you have the files, or you may use the ones available for download [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/plots_7-03-2025.zip") (`experiment_results/plots_7-03-2025.zip`) and [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/nd_d_raw_scores/raw_scores.tar.gz") (`experiment_results/nd_d_raw_scores/raw_scores.tar.gz`).
+   * The correct path for the `PATH` variables correspond to one that leads to the files with the predictions made by the models and the raw count as estimated by GTrie. Concretely, `PATH` and `PATH2` want the ND predictions and `PATH3` the raw score estimated by Gtrie for the ND dataset.
 2. For the final cell, the file must be downloaded from [here](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/multi-vs-isolated.csv") (`experiment_results/multi-vs-isolated.csv`)
 3. Once the files are present, run all cells.
+
+
+[^1]: Handling these scripts might be a little complicated. Initially I did not design them with the intention of them being "easy to run by another person". Apologies for that.
+
+
+---
+
+## 5 Time
+
+### [compare_time.ipynb](evaluation/time/compare_time.ipynb)
+
+This is the exist script. Just change the paths accordingly and click run all. Basically you want to set up `logs_path` to the folder output of the [zip](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/logger_raw.zip") (`experiment_results/logger_raw.zip`) and `base_path` to something like [time](https://figshare.com/s/794d3e3dc66ee09c0e86 "Figshare: experiment_results/time.zip") (`experiment_results/time.zip`).
 
 
 [^1]: Handling these scripts might be a little complicated. Initially I did not design them with the intention of them being "easy to run by another person". Apologies for that.
